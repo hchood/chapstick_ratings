@@ -1,5 +1,6 @@
 $(function() {
   $('.star').click( function(e) {
+    // create the variables I'll need for my POST or PUT request
     var starClicked  = $(e.target);
     var numStars     = starClicked.attr('value');
     var chapstickId  = starClicked.attr('data-chapstick-id');
@@ -9,6 +10,9 @@ $(function() {
       stars: numStars
     };
 
+    // if the user has not yet rated the chapstick,
+    // set route variables to "POST /ratings"
+    // Otherwise, send request to "PUT /ratings/:chapstick_id"
     if ( userRatingId === "") {
       requestType = "POST";
       path = "/ratings";
@@ -17,6 +21,7 @@ $(function() {
       path = "/ratings/" + chapstickId;
     }
 
+    // highlight the appropriate stars & submit or update vote
     highlightStars(numStars, chapstickId);
     submitVote(requestType, path, ratingData);
   });
