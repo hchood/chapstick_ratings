@@ -4,7 +4,10 @@ $(function() {
     var stars = starClicked.attr('data-stars');
     var chapstickId = starClicked.attr('data-chapstick-id');
 
-    starClicked.addClass('activated');
+    for(i = 1; i <= stars; i++) {
+      star = $('#chapstick_' + chapstickId + '_' + i);
+      star.addClass('activated');
+    }
 
   });
 });
