@@ -1,23 +1,26 @@
-var rates = function(isNew) {
-  var starClicked = $(window.event.srcElement);
-  var stars = starClicked.attr('value');
-  var chapstickId = starClicked.attr('data-chapstick-id');
-  var ratingData = {
-    chapstick_id: chapstickId,
-    stars: stars
-  };
+$(function() {
+  $('.star').click( function(e) {
+    var starClicked  = $(e.target);
+    var numStars     = starClicked.attr('value');
+    var chapstickId  = starClicked.attr('data-chapstick-id');
+    var userRatingId = starClicked.attr('data-user-rating-id');
+    var ratingData   = {
+      chapstick_id: chapstickId,
+      stars: numStars
+    };
 
-  if (isNew === "") {
-    requestType = "POST";
-    path = "/ratings";
-  } else {
-    requestType = "PUT";
-    path = "/ratings/" + chapstickId;
-  }
+    if ( userRatingId === "") {
+      requestType = "POST";
+      path = "/ratings";
+    } else {
+      requestType = "PUT";
+      path = "/ratings/" + chapstickId;
+    }
 
-  highlightStars(stars, chapstickId);
-  submitVote(requestType, path, ratingData);
-};
+    highlightStars(numStars, chapstickId);
+    submitVote(requestType, path, ratingData);
+  });
+});
 
 var submitVote = function(requestType, path, data) {
   $.ajax(
@@ -34,9 +37,11 @@ var highlightStars = function(stars, chapstickId) {
   for(i = 1; i <= 5; i++) {
     star = $('#chapstick_' + chapstickId + '_' + i);
     if (i <= stars) {
-      star.addClass('activated');
+      star.addClass('fa-star');
+      star.removeClass('fa-star-o');
     } else {
-      star.removeClass('activated');
+      star.addClass('fa-star-o');
+      star.removeClass('fa-star');
     }
   }
 };
