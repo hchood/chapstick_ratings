@@ -19,7 +19,7 @@
         <td>
           <ul>
             <% (1..5).each do |i| %>
-              <li class="rating_star" data-chapstick-id="<%= chapstick.id %>" value="<%= i %>" id="<%="chapstick_#{chapstick.id}_#{i}"%>">star</li>
+              <li class="rating_star" data-chapstick-id="<%= chapstick.id %>" value="<%= i %>" id="<%="chapstick_#{chapstick.id}_#{i}"%>" onClick='rates("<%= @ratings.find_by(chapstick: chapstick) %>")'>star</li>
             <% end %>
           </ul>
         </td>

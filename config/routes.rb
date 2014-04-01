@@ -1,6 +1,6 @@
 ChapstickRatings::Application.routes.draw do
   resources :chapsticks
-  resources :ratings, only: [:create, :update, :delete]
+  resources :ratings, only: [:create, :update]
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

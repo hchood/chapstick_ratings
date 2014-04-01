@@ -5,6 +5,7 @@ class ChapsticksController < ApplicationController
   # GET /chapsticks.json
   def index
     @chapsticks = Chapstick.all
+    @ratings = Rating.where(user: current_user)
   end
 
   # GET /chapsticks/1
