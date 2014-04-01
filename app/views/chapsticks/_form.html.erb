@@ -1,0 +1,25 @@
+<%= form_for(@chapstick) do |f| %>
+  <% if @chapstick.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chapstick.errors.count, "error") %> prohibited this chapstick from being saved:</h2>
+
+      <ul>
+      <% @chapstick.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :flavor %><br>
+    <%= f.text_field :flavor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

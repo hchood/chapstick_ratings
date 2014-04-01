@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @chapstick.brand %>
+</p>
+
+<p>
+  <strong>Flavor:</strong>
+  <%= @chapstick.flavor %>
+</p>
+
+<%= link_to 'Edit', edit_chapstick_path(@chapstick) %> |
+<%= link_to 'Back', chapsticks_path %>

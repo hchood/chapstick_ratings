@@ -1,0 +1,29 @@
+<h1>Listing chapsticks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Flavor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chapsticks.each do |chapstick| %>
+      <tr>
+        <td><%= chapstick.brand %></td>
+        <td><%= chapstick.flavor %></td>
+        <td><%= link_to 'Show', chapstick %></td>
+        <td><%= link_to 'Edit', edit_chapstick_path(chapstick) %></td>
+        <td><%= link_to 'Destroy', chapstick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chapstick', new_chapstick_path %>
