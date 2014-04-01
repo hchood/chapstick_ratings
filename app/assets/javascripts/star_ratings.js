@@ -13,5 +13,16 @@ $(function() {
       }
     }
 
+    $.ajax({
+      type: 'POST',
+      url: '/ratings',
+      data: {
+        rating: {
+          // user_id: can't actually pass this in
+          chapstick_id: chapstickId,
+          stars: stars
+        }
+      }
+    });
   });
 });
