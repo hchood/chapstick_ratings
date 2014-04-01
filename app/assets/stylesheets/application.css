@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.rating_star {
+  display: inline;
+}
+
+.activated {
+  background-color: yellow;
+}

@@ -16,6 +16,13 @@
       <tr>
         <td><%= chapstick.brand %></td>
         <td><%= chapstick.flavor %></td>
+        <td>
+          <ul>
+            <% (1..5).each do |i| %>
+              <li class="rating_star" data-chapstick-id="<%= chapstick.id %>" data-stars="<%= i %>" id="<%="chapstick_#{chapstick.id}_#{i}"%>">star</li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= link_to 'Show', chapstick %></td>
         <td><%= link_to 'Edit', edit_chapstick_path(chapstick) %></td>
         <td><%= link_to 'Destroy', chapstick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
